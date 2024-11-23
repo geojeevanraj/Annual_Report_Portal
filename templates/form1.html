@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Forms</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Faculty Forms</h1>
+</header>
+<ul class="flashes">
+    {% for category, message in messages %}
+        <li class="{{ category }}">
+            {{ message }}
+            <button class="close-flash" onclick="this.parentElement.style.display='none';">&times;</button>
+        </li>
+    {% endfor %}
+</ul>
+
+
+<div class="content">
+    <!-- Academic Achievements Form -->
+    <section class="form-section">
+        <h2>Academic Achievements Form</h2>
+        <form method="POST" action="{{ url_for('academic_achievements') }}" enctype="multipart/form-data">
+            <label>Title of Achievement</label>
+            <input type="text" name="title" placeholder="Enter title" required>
+
+            <label>Description</label>
+            <textarea name="description" placeholder="Provide details of the achievement" required></textarea>
+
+            <label>Course/Department</label>
+            <input type="text" name="course_department" placeholder="Enter course or department" required>
+
+            <label>Date</label>
+            <input type="date" name="date" required>
+
+            <label>Supporting Documents (optional)</label>
+            <input type="file" name="supporting_document">
+
+            <label>Visibility Settings</label>
+            <select name="visibility" required>
+                <option value="Public">Public</option>
+                <option value="Restricted">Restricted</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</div>
+
+<script>
+    // Hide flash messages after 5 seconds
+    setTimeout(() => {
+        const flashes = document.querySelector('.flashes');
+        if (flashes) {
+            flashes.style.display = 'none';
+        }
+    }, 5000); // 5000ms = 5 seconds
+</script>
+
+</body>
+</html>

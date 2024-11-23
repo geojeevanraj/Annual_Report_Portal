@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove User</title>
+    <!-- Ensure correct paths to static files -->
+    <!-- <link rel="stylesheet" href="/static/css/remove-user.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/remove-user.css') }}">
+    <!-- <script src="/static/js/remove-user.js"></script> -->
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Remove User</h2>
+    <!-- !-- Flash messages container  -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Ensure form uses the correct POST action -->
+    <!-- /<form id="removeUserForm" method="POST" action="/remove_user" onsubmit="return confirmRemoval()"> -->
+    <form id="removeUserForm" method="POST" action="/remove_user" onsubmit="return confirmRemoval()">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- <label for="rollNo">Roll No</label>
+        <input type="text" id="rollNo" name="rollNo" required> -->
+
+        <button type="submit">Remove User</button>
+    </form>
+</div>
+
+<script>
+    // Simple client-side validation (optional)
+    function confirmRemoval() {
+        return confirm("Are you sure you want to remove this user?");
+    }
+</script>
+</body>
+</html>

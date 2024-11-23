@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Portal - Feedback/Comments Form</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+    <script src="form6.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Feedback/Comments Form</h1>
+        <form id="feedbackForm" method="POST" action="{{ url_for('feedback') }}">
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+
+            <label for="feedback">Feedback/Comments:</label>
+            <textarea id="feedback" name="feedback" placeholder="Enter your feedback or comments" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="feedbackList">
+            <h2>Submitted Feedback</h2>
+            <ul>
+                {% for feedback in feedbacks %}
+                <li>
+                    <strong>Name:</strong> {{ feedback['user_name'] }} <br>
+                    <strong>Feedback:</strong> {{ feedback['feedback'] }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

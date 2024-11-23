@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Data as PDF</title>
+    <link rel="stylesheet" href="/static/css/download.css">
+    <script src="download.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Data Report</h2>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Annual Report 2023</td>
+                <td>01/10/2023</td>
+                <td>John Doe</td>
+            </tr>
+            <tr>
+                <td>Quarterly Review Q1</td>
+                <td>04/01/2023</td>
+                <td>Jane Smith</td>
+            </tr>
+            <tr>
+                <td>Monthly Summary</td>
+                <td>05/15/2023</td>
+                <td>Emily Johnson</td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="downloadPDF()" class="download-btn">Download as PDF</button>
+</div>
+
+</body>
+</html>

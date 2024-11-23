@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <script src="dashboard_faculty.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <h1>Faculty Dashboard</h1>
+    </header>
+
+    <div class="content">
+        <section id="faculty-section">
+            <!-- Submit Data Button and Academic Achievements Form -->
+            <div class="action">
+                <h3>Submit Data</h3>
+                <p>Enter your academic or other relevant information.</p>
+                <!-- <button id="redirectButton-1">Submit Academic Achievement</button> -->
+                <button onclick="window.location.href='{{ url_for('submit_achievement') }}'">Submit Academic Achievement</button>
+                
+            </div>
+
+            <!-- Other Faculty Dashboard Options -->
+            <div class="action">
+                <h3>Edit Submissions</h3>
+                <p>Update or modify your previous data submissions.</p>
+                <button onclick="window.location.href='{{ url_for('edit_submission') }}'">Edit Submission</button>
+                <!-- <button id="redirectButton-2">Edit Submission</button> -->
+            </div>
+            <div class="action">
+                <h3>Notifications</h3>
+                <p>Get alerts for submission deadlines and updates.</p>
+                <button onclick="window.location.href='{{ url_for('notifications')}}'">Notifications</button>
+                <!-- <button id="redirectButton-3">View Notifications</button> -->
+            </div>
+        </section>
+
+        <!-- Logout Button -->
+        <div class="logout-button" style="text-align: center; margin-top: 20px;">
+            <button onclick="window.location.href='{{url_for('logout')}}'">Logout</button>
+        </div>
+    </div>
+
+</body>
+</html>

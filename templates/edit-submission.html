@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Submitted Data</title>
+    <link rel="stylesheet" href="/static/css/edit-submission.css">
+    <script src="edit-submission.js"></script>
+</head>
+<body>
+
+<div class="data-edit-container">
+    <h2>Edit Submitted Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Faculty Name</th>
+                <th>Submission Date</th>
+                <th>Data</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="dataTable">
+            <!-- Sample row structure, actual data would come dynamically -->
+            <tr>
+                <td class="faculty-name">Dr. John Doe</td>
+                <td class="submission-date">2024-10-12</td>
+                <td class="data-entry">Research Publication: Machine Learning Applications</td>
+                <td>
+                    <button onclick="editRow(this)">Edit</button>
+                </td>
+            </tr>
+            <!-- More rows can be added dynamically here -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

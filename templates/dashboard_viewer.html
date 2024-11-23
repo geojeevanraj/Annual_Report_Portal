@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard_viewer.css">
+    <script src="dashboard_viewer.js"></script>
+</head>
+<body>
+<header class="header">
+    <h1>Student Dashboard</h1>
+</header>
+
+<div class="content">
+    <section id="viewer-section">
+        <div class="action">
+            <h3>View Reports</h3>
+            <p>Read the generated annual reports.</p>
+            <button onclick="window.location.href='{{url_for('view_report')}}'">View Report</button>
+
+        </div>
+        <div class="action">
+            <h3>Download Reports</h3>
+            <p>Download reports in formats like PDF.</p>
+            <!-- <button id="redirectButton-2">Download PDF</button> -->
+            <button onclick="window.location.href='{{url_for('download_pdf')}}'">Download Pdf</button>
+        </div>
+        <div class="action">
+            <h3>Feedback</h3>
+            <p>Provide feedback or comments on the reports.</p>
+            <!-- <button id="redirectButton-3">Submit Feedback</button> -->
+            <button onclick="window.location.href='{{url_for('feedback_comments')}}'">Feedback</button>
+        </div>
+    </section>
+
+
+<!-- Logout Button at the Bottom -->
+ <centre><div class="problem-button">
+<div class="logout-button" style="text-align: center; margin-top: 20px;">
+    <button onclick="window.location.href='{{url_for('logout')}}'">Logout</button>
+</div>
+ </div>
+</centre>
+</div>
+
+
+<!-- <script>
+    document.getElementById("redirectButton-1").onclick = function () {
+        window.location.href = "view-report.html";
+        }
+        document.getElementById("redirectButton-2").onclick = function () {
+        window.location.href = "download.html";
+        }
+     document.getElementById("redirectButton-3").onclick = function () {
+        window.location.href = "form6.html";
+        }
+    function logout() {
+        // Logic for logging out the user
+        alert("You have been logged out.");
+        // Redirect to login page or perform logout action
+        window.location.href = "login.html"; // Change to your login page URL
+    }
+</script> -->
+
+</body>
+</html>

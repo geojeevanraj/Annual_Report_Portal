@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Submissions</title>
+    <link rel="stylesheet" href="/static/css/approve-data.css">
+</head>
+<body>
+    <div class="table-container">
+        <h2>Pending Submissions for Approval</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Course/Department</th>
+                    <th>Visibility</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for submission in submissions %}
+                <tr>
+                    <td>{{ submission.title }}</td>
+                    <td>{{ submission.description }}</td>
+                    <td>{{ submission.department }}</td>
+                    <td>{{ submission.visibility }}</td>
+                    <td>
+                        <!-- Approve Button -->
+                        <form action="{{ url_for('approve_submission', submission_id=submission._id) }}" method="POST" style="display: inline;">
+                            <button type="submit">Approve</button>
+                        </form>
+
+                        <!-- Reject Button -->
+                        <form action="{{ url_for('reject_submission', submission_id=submission._id) }}" method="POST" style="display: inline;">
+                            <button type="submit">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

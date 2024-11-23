@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Settings</title>
+    <link rel="stylesheet" href="/static/css/update-settings.css">
+    <script src="update-settings.js"></script>
+</head>
+<body>
+
+<div class="settings-container">
+    <h2>Update Settings</h2>
+    <div class="info-section">
+        <h3>Current Data Overview</h3>
+        <div class="data-count">
+            <p><strong>Faculty Members:</strong> <span id="facultyCount">Loading...</span></p>
+            <p><strong>Students:</strong> <span id="studentCount">Loading...</span></p>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <h3>Annual Report Settings</h3>
+        <form id="settingsForm" onsubmit="return updateSettings()">
+            <div class="form-group">
+                <label for="deadline">Submission Deadline:</label>
+                <input type="date" id="deadline" required>
+            </div>
+            <div class="form-group">
+                <label for="reportVisibility">Report Visibility:</label>
+                <select id="reportVisibility">
+                    <option value="public">Public</option>
+                    <option value="faculty-only">Faculty Only</option>
+                    <option value="students-only">Students Only</option>
+                </select>
+            </div>
+            <button type="submit">Save Settings</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

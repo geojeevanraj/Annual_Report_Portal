@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Portal - Future Goals & Department Plans Form</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+    <script src="form5.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Future Goals & Department Plans Form</h1>
+        <form id="goalsForm" method="POST" action="{{ url_for('future_goals') }}">
+            <label for="departmentName">Department Name:</label>
+            <input type="text" id="departmentName" name="departmentName" placeholder="Enter department name" required>
+
+            <label for="goalTitle">Goal Title:</label>
+            <input type="text" id="goalTitle" name="goalTitle" placeholder="Enter goal title" required>
+
+            <label for="goalDescription">Description of Plan/Goal:</label>
+            <textarea id="goalDescription" name="goalDescription" placeholder="Enter detailed description of the plan or goal" rows="4" required></textarea>
+
+            <label for="targetDate">Target Date for Completion:</label>
+            <input type="date" id="targetDate" name="targetDate" required>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="goalList">
+            <h2>Submitted Goals</h2>
+            <ul>
+                {% for goal in goals %}
+                <li>
+                    <strong>Department:</strong> {{ goal['department_name'] }} <br>
+                    <strong>Goal Title:</strong> {{ goal['goal_title'] }} <br>
+                    <strong>Description:</strong> {{ goal['goal_description'] }} <br>
+                    <strong>Target Date:</strong> {{ goal['target_date'] }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

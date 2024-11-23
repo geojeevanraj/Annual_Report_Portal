@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <!-- <link rel="stylesheet" href="static/css/add-user.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add-user.css') }}">
+    <script src="/static/js/add-user.js"></script>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Add User</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <!-- <form id="addUserForm" onsubmit="return validateForm()"> -->
+        <form id="addUserForm" onsubmit="return validateForm()" method="POST" action="/add-user">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="rollNo">Roll No</label>
+        <input type="text" id="rollNo" name="rollNo" required>
+
+        <label for="department">Department</label>
+        <select id="year" name="year" required>
+            <option value="">Select Department</option>
+            <option value="1">CSE</option>
+            <option value="2">IT</option>
+            <option value="3">ECE</option>
+            <option value="4">EEE</option>
+            <option value="5">AIDS</option>
+            <option value="6">AIML</option>
+            <option value="7">CYS</option>
+            <option value="8">BME</option>
+            <option value="9">BT</option>
+            <option value="10">FT</option>
+            <option value="11">MECH</option>
+            <option value="12">CIVIL</option>
+            <option value="13">AGRI</option>
+        </select>
+
+        <button type="submit">Add User</button>
+       <!-- <button><a href = "/add-user" id="addUserForm" >Add User</a></button>  -->
+    </form>
+</div>
+
+
+</body>
+</html>

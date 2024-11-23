@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Annual Report</title>
+    <link rel="stylesheet" href="/static/css/generate-report.css">
+</head>
+<body>
+    <div class="report-container">
+        <h2>Generate Annual Report</h2>
+        <form method="POST" action="{{ url_for('generate_reports') }}">
+            <div class="form-group">
+                <label for="yearSelect">Select Year:</label>
+                <select name="year" id="yearSelect" required>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+            <button type="submit">Generate Report</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% if download_link %}
+            <div class="download-link">
+                <a href="{{ download_link }}" class="btn btn-success">Download Report</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

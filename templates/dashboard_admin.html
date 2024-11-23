@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <script src="/static/js/dashboard_admin.js"></script>
+</head>
+<body>
+
+<header class="header">
+    <h1>Admin Dashboard</h1>
+</header>
+
+<div class="content">
+    <section id="admin-section">
+        <div class="action">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flashes">
+                         {% for category, message in messages %}
+                            <li class="flash {{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                 {% endif %}
+            {% endwith %}
+
+            <h3>Add/Remove Users</h3>
+            <p>Manage user accounts by creating or deleting users.</p>
+            <!-- <button class="add" id="redirectButton-1">Add User</button> -->
+            <!-- <button onclick="window.location.href='{{ url_for('add_user') }}'">Add User</button> -->
+            
+        
+            <button class="add" id="redirectButton-1" onclick="window.location.href='{{ url_for('add_user') }}'">Add User</button>
+            <!-- <button class="remove" id="redirect-remove-Button">Remove User</button> -->
+            <button class="remove" id="redirectButton-2" onclick="window.location.href='{{ url_for('remove_user') }}'">Remove User</button>
+        </div>
+        <div class="action">
+            <h3>Approve Data</h3>
+            <p>Review and approve data submissions from faculty/staff.</p>
+            <!-- <button id="redirectButton-2">Approve Data</button> -->
+            <button class="approve" id="redirectButton-3" onclick="window.location.href='{{ url_for('approve_data') }}'">Approve Data</button>
+        </div>
+        <div class="action">
+            <h3>Generate Reports</h3>
+            <p>Compile all submitted data into an annual report.</p>
+            <button class="generate" id="redirectButton-4" onclick="window.location.href='{{ url_for('generate_reports') }}'">Generate Report</button>
+            <!-- <button id="redirectButton-3">Generate Report</button> -->
+        </div>
+        <div class="action">
+            <h3>Settings</h3>
+            <p>Configure settings like data submission deadlines.</p>
+            <button class="settings" id="redirectButton-5" onclick="window.location.href='{{ url_for('settings') }}'">Settiings</button>
+            <!-- <button id="redirectButton-4">Update Settings</button> -->
+        </div>
+    </section>
+
+    <!-- Logout Button -->
+    <!-- <div class="logout-button" style="text-align: center; margin-top: 20px;">
+        <button onclick="window.location.href='{{url_for('logout')}}'">Logout</button>
+    </div>
+</div> -->
+<div class="logout-button" style="text-align: center; margin-top: 20px;">
+    <button class="logout" onclick="window.location.href='{{url_for('logout')}}'">Logout</button>
+</div>
+
+
+<!-- <script>
+    document.getElementById("redirectButton-1").onclick = function () {
+        window.location.href = "add-user.html";
+        }
+        document.getElementById("redirectButton-2").onclick = function () {
+    window.location.href = "approve-data.html";
+};
+document.getElementById("redirectButton-3").onclick = function () {
+    window.location.href = "generate-report.html";
+};
+document.getElementById("redirectButton-4").onclick = function () {
+    window.location.href = "update-settings.html";
+};
+        document.getElementById("redirect-remove-Button").onclick = function () {
+        window.location.href = "remove-user.html";
+        }
+    function logout() {
+        // Logic for logging out the user
+        alert("You have been logged out.");
+        // Redirect to login page or perform logout action
+        window.location.href = "login.html"; // Change to your login page URL
+    }
+</script> -->
+
+</body>
+</html>

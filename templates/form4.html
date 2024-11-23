@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Portal - Alumni Achievement Form</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+    <script src="form4.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Alumni Achievement Form</h1>
+        <form id="achievementForm" method="POST" action="{{ url_for('alumni_achievement') }}">
+            <label for="alumniName">Alumni Name:</label>
+            <input type="text" id="alumniName" name="alumniName" placeholder="Enter alumni name" required>
+
+            <label for="graduationYear">Graduation Year:</label>
+            <input type="number" id="graduationYear" name="graduationYear" placeholder="Enter graduation year" required>
+
+            <label for="achievementTitle">Achievement Title:</label>
+            <input type="text" id="achievementTitle" name="achievementTitle" placeholder="Enter achievement title" required>
+
+            <label for="achievementDetails">Details of Achievement:</label>
+            <textarea id="achievementDetails" name="achievementDetails" placeholder="Enter details of the achievement" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="achievementList">
+            <h2>Submitted Alumni Achievements</h2>
+            <ul>
+                <!-- Placeholder for dynamically displaying achievements -->
+                {% for achievement in achievements %}
+                <li>
+                    <strong>Alumni Name:</strong> {{ achievement['alumni_name'] }} <br>
+                    <strong>Graduation Year:</strong> {{ achievement['graduation_year'] }} <br>
+                    <strong>Achievement Title:</strong> {{ achievement['achievement_title'] }} <br>
+                    <strong>Details:</strong> {{ achievement['achievement_details'] }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

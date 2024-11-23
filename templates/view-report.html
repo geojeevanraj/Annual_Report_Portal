@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Reports</title>
+    <link rel="stylesheet" href="/static/css/view-report.css">
+    <script src="/static/js/view-report.js" defer></script>
+</head>
+<body>
+    <div class="report-container">
+        <h2>All Reports</h2>
+
+        <table id="reportTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if reports and reports|length > 0 %}
+                    {% for report in reports %}
+                        <tr>
+                            <td>{{ report.title }}</td>
+                            <td>{{ report.date }}</td>
+                            <td>
+                                <button onclick="viewReportDetails('{{ report.id }}')">View</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="error-message">Failed to load reports. Please try again later.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <!-- Optional fallback message for additional visibility -->
+        <p id="noReportsMessage" style="{% if reports and reports|length > 0 %}display: none;{% endif %} color: red;">
+            No reports available or failed to load. Please try again later.
+        </p>
+    </div>
+
+    <script>
+        function viewReportDetails(reportId) {
+            // Redirect to the detailed report view
+            window.location.href = `/report-details/${reportId}`;
+        }
+    </script>
+</body>
+</html>

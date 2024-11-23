@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Portal - Research and Publication Form</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Research and Publication Form</h1>
+        <!-- Form action points to Flask route -->
+        <form id="publicationForm" method="POST" action="{{ url_for('research_publication') }}">
+            <label for="researchTitle">Research Title:</label>
+            <input type="text" id="researchTitle" name="researchTitle" placeholder="Enter research title" required>
+
+            <label for="authorName">Author Name:</label>
+            <input type="text" id="authorName" name="authorName" placeholder="Enter author name" required>
+
+            <label for="publicationDate">Publication Date:</label>
+            <input type="date" id="publicationDate" name="publicationDate" required>
+
+            <label for="researchSummary">Research Summary:</label>
+            <textarea id="researchSummary" name="researchSummary" placeholder="Enter research summary" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <!-- Section for listing submitted publications -->
+        <div id="publicationList">
+            <h2>Submitted Publications</h2>
+            <ul>
+                <!-- Placeholder for dynamically displaying data -->
+                <!-- Use a templating language (e.g., Jinja2) to loop through and display submissions -->
+                {% for publication in publications %}
+                <li>
+                    <strong>Title:</strong> {{ publication['research_title'] }} <br>
+                    <strong>Author:</strong> {{ publication['author_name'] }} <br>
+                    <strong>Date:</strong> {{ publication['publication_date'] }} <br>
+                    <strong>Summary:</strong> {{ publication['research_summary'] }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

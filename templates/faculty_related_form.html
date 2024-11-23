@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Forms</title>
+    <link rel="stylesheet" href="/static/css/faculty_related_form.css">
+</head>
+<body>
+<header class="header">
+    <h1>Faculty Forms</h1>
+</header>
+ <a href="{{ url_for('academic_achievements') }}">Academic Achievements Form </a>
+ <a href="{{ url_for('student_activities') }}">Student Activities Form</a>
+ <a href="{{ url_for('research_publications') }}">Research and Publications Form</a>
+ <a href="{{ url_for('alumni_achievements') }}">Alumni Achievements Form</a>
+ <a href="{{ url_for('future_goals') }}">Future Goals or Department Plans Form</a>
+ <a href="{{ url_for('feedback_comments') }}">Feedback or Comments Form (for internal use)</a>
+</body>
+<script>
+    function navigateTo(page) {
+        window.location.href = page;
+    }
+</script>
+</html>
